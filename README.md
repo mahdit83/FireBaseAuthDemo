@@ -14,7 +14,8 @@ for Achiving this you had first enable Email/Password and Google in FireBase | A
  2.3. get generated `google-service.json` from **Firebase** console and put in app folder. 
  
  
- Mahdi Tajik http://www,mahditajik.ir
+ [Mahdi Tajik][3] 
  
   [1]: https://developers.google.com/android/guides/client-auth
   [2]: https://console.developers.google.com/projectselector/apis/credentials
+  [3]: http://www,mahditajik.ir
