@@ -18,4 +18,4 @@ for Achiving this you had first enable Email/Password and Google in FireBase | A
  
   [1]: https://developers.google.com/android/guides/client-auth
   [2]: https://console.developers.google.com/projectselector/apis/credentials
-  [3]: http://www,mahditajik.ir
+  [3]: http://www.mahditajik.ir
