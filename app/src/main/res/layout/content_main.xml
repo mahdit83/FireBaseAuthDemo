@@ -10,9 +10,10 @@
     tools:context="ir.mtajik.firebasefulldemo.MainActivity"
     tools:showIn="@layout/activity_main">
     <TextView
+        android:padding="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="با موفقیت وارد شدید"
+        android:text="you are authenticated. for reset auth click on star "
         />
 
 </android.support.constraint.ConstraintLayout>

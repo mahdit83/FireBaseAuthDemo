@@ -142,7 +142,7 @@ public class LoginActivityWithGoogle extends AppCompatActivity {
 
             int statusCode = result.getStatus().getStatusCode();
             if (result.isSuccess()) {
-                // Google Sign In was successful, authenticate with Firebase
+                // Google Sign In was successful , authenticate with Firebase
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
             } else {
