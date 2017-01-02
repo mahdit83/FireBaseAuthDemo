@@ -91,10 +91,11 @@ public class LoginActivityWithGoogle extends AppCompatActivity {
 
         initilizeUi();
 
+        btnResetPassword.setText("normal Register | Login");
         btnResetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivityWithGoogle.this, ResetPasswordActivity
+                startActivity(new Intent(LoginActivityWithGoogle.this, LoginActivity
                         .class));
             }
         });
@@ -146,6 +147,7 @@ public class LoginActivityWithGoogle extends AppCompatActivity {
                 firebaseAuthWithGoogle(account);
             } else {
                 // Google Sign In failed, update UI appropriately
+
             }
         }
     }
@@ -190,7 +192,10 @@ public class LoginActivityWithGoogle extends AppCompatActivity {
                         // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
                             Log.w(TAG, "signInWithCredential", task.getException());
-                            Toast.makeText(LoginActivityWithGoogle.this, "Authentication failed.",
+                            Toast.makeText(LoginActivityWithGoogle.this, "Authentication failed",
+                                    Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(LoginActivityWithGoogle.this, "you are authorized",
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
