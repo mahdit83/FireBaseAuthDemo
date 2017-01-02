@@ -17,6 +17,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
@@ -27,6 +29,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 public class LoginActivityWithGoogle extends AppCompatActivity {
 
+    public static GoogleApiClient mGoogleApiClient;
     private EditText inputEmail, inputPassword;
     private Button btnSignIn, btnSignUp, btnResetPassword;
     private ProgressBar progressBar;
@@ -35,8 +38,6 @@ public class LoginActivityWithGoogle extends AppCompatActivity {
     private String TAG = "LoginWithgoogle";
     private GoogleSignInOptions gso;
     private int RC_SIGN_IN = 7;
-    private GoogleApiClient mGoogleApiClient;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,11 +101,11 @@ public class LoginActivityWithGoogle extends AppCompatActivity {
             }
         });
 
-        btnSignIn.setVisibility(View.GONE);
+        btnSignIn.setText("sign out google account");
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                signOut();
             }
         });
 
@@ -194,12 +195,25 @@ public class LoginActivityWithGoogle extends AppCompatActivity {
                             Log.w(TAG, "signInWithCredential", task.getException());
                             Toast.makeText(LoginActivityWithGoogle.this, "Authentication failed",
                                     Toast.LENGTH_SHORT).show();
-                        }else{
+                        } else {
                             Toast.makeText(LoginActivityWithGoogle.this, "you are authorized",
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+    }
+
+    private void signOut() {
+
+        //unlink google account
+
+        Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(new ResultCallback<Status>() {
+            @Override
+            public void onResult(@NonNull Status status) {
+                Toast.makeText(LoginActivityWithGoogle.this, "successfully signed out!", Toast
+                        .LENGTH_SHORT).show();
+            }
+        });
     }
 }
 
