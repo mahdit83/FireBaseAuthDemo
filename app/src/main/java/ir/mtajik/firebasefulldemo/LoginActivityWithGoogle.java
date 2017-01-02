@@ -30,13 +30,13 @@ import com.google.firebase.auth.GoogleAuthProvider;
 public class LoginActivityWithGoogle extends AppCompatActivity {
 
     public static GoogleApiClient mGoogleApiClient;
+    public static FirebaseAuth auth;
+    public static GoogleSignInOptions gso;
     private EditText inputEmail, inputPassword;
     private Button btnSignIn, btnSignUp, btnResetPassword;
     private ProgressBar progressBar;
-    private FirebaseAuth auth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private String TAG = "LoginWithgoogle";
-    private GoogleSignInOptions gso;
     private int RC_SIGN_IN = 7;
 
     @Override
@@ -205,8 +205,10 @@ public class LoginActivityWithGoogle extends AppCompatActivity {
 
     private void signOut() {
 
-        //unlink google account
+        // sign out normal user
+        FirebaseAuth.getInstance().signOut();
 
+        //unlink google account
         Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(new ResultCallback<Status>() {
             @Override
             public void onResult(@NonNull Status status) {

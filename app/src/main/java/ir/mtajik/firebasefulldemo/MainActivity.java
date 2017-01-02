@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         TextView text = (TextView) findViewById(R.id.text_message);
+        text.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail()+
+                ", " + text.getText().toString());
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setImageResource(android.support.design.R.drawable.abc_ic_star_black_16dp);
@@ -30,8 +32,7 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(view, "your auth is reset.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
-                // sign out normal user
-                FirebaseAuth.getInstance().signOut();
+
                 MainActivity.this.finish();
 
             }

@@ -14,7 +14,7 @@
         android:padding="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="you are authenticated. for reset auth click on star "
+        android:text="you are authenticated."
         />
 
 </android.support.constraint.ConstraintLayout>
