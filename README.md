@@ -9,7 +9,7 @@ for Achiving this you had first enable Email/Password and Google in FireBase | A
 
  2.1. first you should created SHA1 debug key and add to **Firebase** console. creating SHA1 from [here][1].
  
- 2.2. create both web api and android OAuth 2.0 client ID from [here][2]
+ 2.2. create both web api and android OAuth 2.0 client ID from [here][2].
  
  2.3. get generated `google-service.json` from **Firebase** console and put in app folder. 
  
